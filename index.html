@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transação Pix</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .info-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+    }
+
+    h2 {
+      margin-bottom: 5px;
+    }
+
+    .cpf-label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="info-box" id="origem">
+    <h2>Origem</h2>
+    <p><span class="cpf-label">Nome:</span> Kaka</p>
+    <p><span class="cpf-label">CPF:</span> 12345678900</p>
+    <p><span class="cpf-label">Antes:</span> R$ 22,00</p>
+    <p><span class="cpf-label">Saldo:</span> R$ 12,00</p>
+    <p><span class="cpf-label">Valor enviado:</span> R$ 10,00</p>
+    
+</div>
+
+  <div class="info-box" id="destino">
+    <h2>Destino</h2>
+    <p><span class="cpf-label">Nome:</span> Lolo</p>
+    <p><span class="cpf-label">CPF:</span> 45678900012</p>
+    <p><span class="cpf-label">Antes:</span> R$ 80,00</p>
+    <p><span class="cpf-label">Saldo:</span> R$ 90,00</p>
+    <p><span class="cpf-label">Valor recebido:</span> R$ 10,00</p>
+</div>
+</div>
+
+<script>
+  // Dados
+  var origemData = {
+    nome: "Kaka",
+    cpf: 12345678900,
+    antes: 22.00,
+    saldo: 12.00
+
+  };
+
+  var destinoData = {
+    nome: "Lolo",
+    cpf: 45678900012,
+    antes: 80.00,
+    saldo: 90.00
+  };
+
+  // Atualizar HTML com os dados
+  function atualizarDados(elementId, data) {
+    var element = document.getElementById(elementId);
+    element.querySelector('p:nth-child(2)').innerText = "Nome: " + data.nome;
+    element.querySelector('p:nth-child(3)').innerText = "CPF: " + data.cpf;
+    element.querySelector('p:nth-child(4)').innerText = "Antes: R$ " + data.antes.toFixed(2);
+    element.querySelector('p:nth-child(5)').innerText = "Depois: R$ " + data.depois.toFixed(2);
+  }
+
+  // Atualizar dados de origem
+  atualizarDados("origem", origemData);
+
+  // Atualizar dados de destino
+  atualizarDados("destino", destinoData);
+</script>
+
+</body>
+</html>
